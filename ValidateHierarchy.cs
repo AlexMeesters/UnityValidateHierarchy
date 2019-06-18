@@ -5,10 +5,18 @@
 --- HOW TO USE? ---
 On the component that you want have validation for:
 Within the OnValidate method add: ValidateHierarchy.Add(this)
-Within the OnDestroy method add: ValidateHierarchy.Remove(this)
+Within the OnDestroy method add: ValidateHierarchy.Remove(this
 
-Please note that the OnValidate method must be public. Else it won't work.
-Cheers!
+Also don't forget to use the #define directives to ensure it only
+Gets compiled for editor use. Otherwise you will get build errors.
+Like the example below:
+
+#if UNITY_EDITOR
+ValidateHierarchy.Add(this)
+#endif
+
+Please note that the OnValidate method must be public. 
+Else it won't work. Cheers!
 */
 
 # if UNITY_EDITOR
