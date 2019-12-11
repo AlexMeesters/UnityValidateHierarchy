@@ -188,7 +188,6 @@ namespace Lowscope.Tools
                         if (tMethod != null)
                         {
                             tMethod.Invoke(item, null);
-                            break;
                         }
                     }
                 }
