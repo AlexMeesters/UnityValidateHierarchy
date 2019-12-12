@@ -1,5 +1,5 @@
-# UnityValidateHierarchy
-Script that calls OnValidate when changes are made in the hierarchy of an object. 
+# Unity Validate Hierarchy
+Script that calls OnValidate when components/gameobjects are added or removed of a child of the root object.
 
 Currently there is one limitation on the script, it only works if the script is on the root of an object. This will/can change in the future if there is enough demand for it. I currently don't have the time to implement this modification.
 
