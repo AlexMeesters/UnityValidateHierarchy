@@ -1,5 +1,5 @@
 /*
-
+ * 
 Copyright notice - Licence: MIT. https://opensource.org/licenses/MIT
 Provided by Alex Meesters. www.alexmeesters.nl. Used within low-scope.com products.
 Source: https://github.com/AlexMeesters/UnityValidateHierarchy
@@ -9,11 +9,8 @@ On the component that you want have validation for:
 Within the OnValidate method add: ValidateHierarchy.Add(this)
 Within the OnDestroy method add: ValidateHierarchy.Remove(this)
 
-Please note that the OnValidate method must be public. Else it won't work.
 Cheers! All the defines are added to prevent any building errors.
-
 */
-
 
 using UnityEngine;
 
@@ -177,7 +174,8 @@ namespace Lowscope.Tools
                 {
                     if (item != null)
                     {
-                        MethodInfo tMethod = item.GetType().GetMethod("OnValidate");
+                        MethodInfo tMethod = item.GetType().GetMethod("OnValidate",
+                            BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
                         if (tMethod != null)
                         {
@@ -189,5 +187,4 @@ namespace Lowscope.Tools
         }
 #endif
     }
-
 }
